@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      // home: Me(),
+      // home: PhotoPage(),
     );
   }
 }

@@ -80,7 +80,7 @@ class _HomePageState extends State<HomePage> {
                 Expanded(
                   child: Text(
                     'Komal Tikoo',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 24),
                   ),
                 ),
               ],
@@ -88,8 +88,7 @@ class _HomePageState extends State<HomePage> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
-              horizontal: 110,
-              vertical: 1,
+              horizontal: 130,
             ),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -98,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(20.0),
                   side: BorderSide(color: Colors.blue, width: 2.0),
                 ),
-                minimumSize: Size(100, 40),
+                minimumSize: Size(70, 40),
               ),
               onPressed: () {},
               child: Text.rich(
@@ -125,7 +124,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Container(
             height: 80,
             padding: EdgeInsets.symmetric(horizontal: 20),
@@ -273,31 +272,34 @@ class _HomePageState extends State<HomePage> {
 }
 
 Widget listViewWidget(Tournaments indexData) {
-  return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(30.0),
-    ),
-    clipBehavior: Clip.antiAliasWithSaveLayer,
-    child: Column(
-      children: [
-        Image.network(
-          "${indexData.coverUrl}",
-          height: 110,
-          width: double.infinity,
-          fit: BoxFit.cover,
-        ),
-        ListTile(
-          title: Text(
-            "${indexData.name}",
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
+  return Padding(
+    padding: EdgeInsets.symmetric(horizontal: 10.0),
+    child: Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(30.0),
+      ),
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      child: Column(
+        children: [
+          Image.network(
+            "${indexData.coverUrl}",
+            height: 110,
+            width: 580,
+            fit: BoxFit.fill,
           ),
-          subtitle: Text("${indexData.gameName}"),
-          trailing: const Icon(Icons.keyboard_arrow_right),
-          onTap: () {},
-        ),
-      ],
+          ListTile(
+            title: Text(
+              "${indexData.name}",
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            subtitle: Text("${indexData.gameName}"),
+            trailing: const Icon(Icons.keyboard_arrow_right),
+            onTap: () {},
+          ),
+        ],
+      ),
     ),
   );
 }
