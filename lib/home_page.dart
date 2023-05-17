@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_null_comparison
-
 import 'package:flutter/material.dart';
 import 'package:sec_project/GameTv.dart';
 import 'package:sec_project/user_api.dart';
@@ -10,7 +8,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // List<User> _users = [];
   GameTv userResponse = GameTv();
 
   var isLoaded = false;
