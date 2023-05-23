@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:sec_project/GameTv.dart';
 import 'package:sec_project/user_api.dart';
@@ -19,8 +21,16 @@ class _HomePageState extends State<HomePage> {
   }
 
   getData() async {
+    // setState(() {
+    // isLoaded = false;
+    // });
     userResponse = (await UserApi().getUser())!;
     if (userResponse != null) {
+      // Future.delayed(Duration(milliseconds: 1), () {
+      //   setState(() {
+      //     isLoaded = false;
+      //   });
+      // });
       setState(() {
         isLoaded = true;
       });
@@ -57,7 +67,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: Column(
+      body: isLoaded ? Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Padding(
@@ -266,7 +276,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
-      ),
+      ):CircularProgressIndicator()
     );
   }
 }
